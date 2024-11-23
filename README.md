@@ -3,7 +3,7 @@
 A mod that adds saving and reloading to Laravel tinker.
 
 ## Setup
-1. Add `tinkerReloadMod.php` to the root directory of your Laravel project.
+1. Add [`tinkerReloadMod.php`](https://github.com/benfaerber/laravel-tinker-reload-mod/blob/master/tinkerReloadMod.php) to the root directory of your Laravel project.
 1. Run `php artisan tinker tinkerReloadMod.php`.
 1. Now from the tinker shell run `eval(SETUP_TINKER_RELOAD_MOD)`
 1. Run `chmod +x tinker` to mark the new script as executable
