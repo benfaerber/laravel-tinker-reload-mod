@@ -20,7 +20,20 @@ Say you are working with a user in tinker:
 ```php
 >$joe = User::where('username', 'joe')->first()
 >$joe->fullName
-    JoeSmith // Oh no! Theres a bug!
+    Smith Joe // Oh no! Theres a bug!
+```
+
+Fix the bug:
+```php
+function getFullNameAttribute() {
+    return $this->first_name . ' ' . $this->last_name;
+}
+```
+
+And tinker is using your old session:
+```php
+>$joe->fullName
+    Smith Joe // Oh no! The bug is still there! 
 ```
 
 In normal Tinker you would have to fix the bug, close the session, reopen the session, and then rerun the query to get `$joe` again!
@@ -30,7 +43,7 @@ This makes interactive development difficult and you will find your self `Ctrl+C
 ```php
 >$joe = User::where('username', 'joe')->first()
 >$joe->fullName
-    JoeSmith // Oh no! Theres a bug!
+    Smith Joe // Oh no! Theres a bug!
 ```
 
 Fix the bug:
@@ -44,7 +57,7 @@ Now back to tinker:
 ```php
 >$joe = User::where('username', 'joe')->first()
 >$joe->fullName
-    JoeSmith // Oh no! Theres a bug!
+    Smith Joe // Oh no! Theres a bug!
 >eval(RELOAD)
 
    INFO  Goodbye.
