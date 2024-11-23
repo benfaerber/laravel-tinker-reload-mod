@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+while true
+do
+    php artisan tinker tinkerReloadMod.php .tinkerReloadModContext.php
+    if grep -q ___EXIT_RELOAD_MOD___ ".tinkerReloadModContext.php"; then
+        break;
+    fi
+done
